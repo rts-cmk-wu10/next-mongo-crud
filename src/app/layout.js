@@ -1,5 +1,7 @@
 import SiteHeader from "@/components/layout/site-header"
 import "./globals.css"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 
 export const metadata = {
   title: "CRUD Med MongoDB & NextJS",
@@ -11,9 +13,20 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="min-h-dvh">
         <SiteHeader />
-        <main className="px-[16rem] mt-6 h-full">
+        <main className="px-2 lg:px-[16rem] mt-6 h-full">
           {children}
         </main>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={true}
+          stacked={true}
+          newestOnTop={true}
+          draggable={true}
+          closeOnClick={true}
+          closeButton={false}
+          theme="colored"
+        />
       </body>
     </html>
   )

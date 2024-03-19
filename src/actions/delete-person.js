@@ -8,10 +8,15 @@ export default async function DeletePerson(id) {
 		await connect()
 	} catch (error) {
 		console.error(error)
-		return { success: false, error: "Could not connect to database" }
+		return false
 	}
 
-	await Person.findByIdAndDelete(id)
-
-	await disconnect()
+	try {
+		await Person.findByIdAndDelete(id)
+		return true
+	} catch (error) {
+		console.error(error)
+		await disconnect()
+		return false
+	}
 }

@@ -1,4 +1,5 @@
 import GetPeople from "@/actions/get-people"
+import MainHeading from "@/components/main-heading"
 import Link from "next/link"
 
 export default async function Read() {
@@ -6,7 +7,7 @@ export default async function Read() {
 
 	return (
 		<>
-			<h1 className="text-2xl font-semibold">Read <span className="text-lg text-gray-600">(Læs)</span></h1>
+			<MainHeading>Read <span className="text-lg text-gray-600">(Læs)</span></MainHeading>
 			<ul>
 				{people.map(person => (
 					<li key={person._id}>
