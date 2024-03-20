@@ -3,8 +3,10 @@ import { useFormState } from "react-dom"
 import CreatePerson from "@/actions/create-person"
 import { useEffect, useRef } from "react"
 import { Send } from "react-feather"
-import MainHeading from "@/components/main-heading"
+import MainHeading from "@/components/text-components/main-heading"
 import { toast } from "react-toastify"
+import Input from "@/components/form-components/input"
+import Button from "@/components/form-components/button"
 
 export default function Create() {
 	const [formState, formAction] = useFormState(CreatePerson)
@@ -25,19 +27,9 @@ export default function Create() {
 		<>
 			<MainHeading>Create <span className="text-lg text-gray-600">(Opret)</span></MainHeading>
 			<form action={formAction} className="w-full md:w-1/2" ref={formRef}>
-				<label className="flex flex-col">
-					<span>Navn</span>
-					<input type="text" name="name" className="border border-gray-300 rounded-md px-2 py-1" />
-					<span className="text-red-500 text-sm">{formState?.errors?.name[0]}</span>
-				</label>
-				<label className="flex flex-col">
-					<span>Alder</span>
-					<input type="number" name="age" className="border border-gray-300 rounded-md px-2 py-1" />
-					<span className="text-red-500 text-sm">{formState?.errors?.age[0]}</span>
-				</label>
-				<button type="submit" className="flex justify-center items-center gap-2 bg-gradient-to-b from-green-700 to-green-500 shadow-md text-center uppercase font-semibold text-white px-2 py-1 w-full my-4 rounded-md">
-					Create <Send size={16} />
-				</button>
+				<Input label="Navn" name="name" statusMessage={formState?.errors?.name[0]} />
+				<Input label="Alder" name="age" type="number" statusMessage={formState?.errors?.age[0]} />
+				<Button type="submit" color="success">Create <Send size={16} /></Button>
 			</form>
 		</>
 	)

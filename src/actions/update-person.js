@@ -25,14 +25,11 @@ export default async function UpdatePerson(prevState, formData) {
 
 	try {
 		await Person.findByIdAndUpdate(id, {name, age})
+		await disconnect()
+		return { success: true }
 	} catch (error) {
 		await disconnect()
 		console.error(error)
 		return { success: false, error: "Could not create person" }
 	}
-
-	await disconnect()
-
-	return validate
-
 }

@@ -1,9 +1,8 @@
 "use client"
 
 import GetPeople from "@/actions/get-people"
-import GetPerson from "@/actions/get-person"
-import DialogEdit from "@/components/dialog-edit"
-import MainHeading from "@/components/main-heading"
+import DialogEdit from "@/components/dialog/dialog-edit"
+import MainHeading from "@/components/text-components/main-heading"
 import { useEffect, useState } from "react"
 
 export default function Update() {
@@ -20,7 +19,7 @@ export default function Update() {
 		<>
 			<MainHeading>Update <span className="text-lg text-gray-600">(Rediger)</span></MainHeading>
 			<ul>
-				{people.map(person => (
+				{people?.map(person => (
 					<li key={person._id} className="flex items-center gap-2">
 						<DialogEdit person={person} loader={loader} setLoader={setLoader} />
 						{person.name}, {person.age}

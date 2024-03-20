@@ -1,4 +1,4 @@
-import MainHeading from "@/components/main-heading"
+import MainHeading from "@/components/text-components/main-heading"
 
 export default function Home() {
   return (

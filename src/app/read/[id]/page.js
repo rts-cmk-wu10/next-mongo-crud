@@ -1,5 +1,5 @@
 import GetPerson from "@/actions/get-person"
-import MainHeading from "@/components/main-heading"
+import MainHeading from "@/components/text-components/main-heading"
 import Link from "next/link"
 import { ArrowLeft } from "react-feather"
 

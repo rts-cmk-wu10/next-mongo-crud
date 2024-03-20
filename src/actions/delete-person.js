@@ -13,6 +13,7 @@ export default async function DeletePerson(id) {
 
 	try {
 		await Person.findByIdAndDelete(id)
+		await disconnect()
 		return true
 	} catch (error) {
 		console.error(error)

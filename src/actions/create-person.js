@@ -30,14 +30,11 @@ export default async function CreatePerson(prevState, formData) {
 
 	try {
 		await doc.save()
+		await disconnect()
+		return { success: true }
 	} catch (error) {
 		await disconnect()
 		console.error(error)
 		return { success: false, error: "Could not create person" }
 	}
-
-	await disconnect()
-
-	return validate
-
 }

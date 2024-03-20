@@ -8,10 +8,10 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        modalf: "modalf 0.15s ease-in-out",
+        modalzoom: "modalzoom 0.15s ease-in-out",
       },
       keyframes: {
-        modalf: {
+        modalzoom: {
           "0%": { transform: "scale(0)" },
           "100%": { transform: "scale(1)" },
         },
@@ -19,4 +19,4 @@ module.exports = {
     },
   },
   plugins: [],
-};
+}

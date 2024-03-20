@@ -8,12 +8,16 @@ export default async function GetPeople() {
 		await connect()
 	} catch (error) {
 		console.error(error)
-		return { success: false, error: "Could not connect to database" }
+		return []
 	}
 
-	const people = await Person.find()
-
-	await disconnect()
-
-	return JSON.parse(JSON.stringify(people))
+	try {
+		const people = await Person.find()
+		await disconnect()
+		return JSON.parse(JSON.stringify(people))
+	} catch (error) {
+		await disconnect()
+		console.error(error)
+		return []
+	}
 }

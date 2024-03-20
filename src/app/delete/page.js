@@ -1,8 +1,8 @@
 "use client"
 
 import GetPeople from "@/actions/get-people"
-import DialogDelete from "@/components/dialog-delete"
-import MainHeading from "@/components/main-heading"
+import DialogDelete from "@/components/dialog/dialog-delete"
+import MainHeading from "@/components/text-components/main-heading"
 import { useEffect, useState } from "react"
 
 export default function Delete() {
