@@ -34,7 +34,7 @@ export default function DialogEdit({ person, loader, setLoader }) {
 			<Dialog	dialogRef={dialogRef}>
 				<DialogHeader title="Rediger person" dialogRef={dialogRef} />
 
-				<form action={formAction}>
+				<form action={formAction} noValidate>
 					<input type="hidden" name="id" value={person._id} />
 					<Input label="Navn" name="name" value={person.name} statusMessage={formState?.errors?.name[0]} />
 					<Input label="Alder" name="age" type="number" value={person.age} statusMessage={formState?.errors?.age[0]} />

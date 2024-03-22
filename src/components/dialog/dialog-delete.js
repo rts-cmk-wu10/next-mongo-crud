@@ -2,7 +2,7 @@
 
 import DeletePerson from "@/actions/delete-person"
 import { useRef } from "react"
-import { Trash } from "react-feather"
+import { Trash2 } from "react-feather"
 import { toast } from "react-toastify"
 import Button from "../form-components/button"
 import Dialog from "./dialog"
@@ -26,7 +26,7 @@ export default function DialogDelete({ person, loader, setLoader }) {
 	return (
 		<>
 			<button onClick={() => dialogRef.current.showModal()} className="text-center text-black">
-				<Trash size={16} />
+				<Trash2 size={16} />
 				<span className="sr-only">Delete</span>
 			</button>
 			<Dialog

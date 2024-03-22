@@ -14,7 +14,8 @@ export default async function UpdatePerson(prevState, formData) {
 
 	const validate = PersonValidation.safeParse({ name, age: Number(age) })
 	
-	if(!validate.success) return { success: false, errors: validate.error.flatten().fieldErrors }
+	if(!validate.success)
+		return { success: false, errors: validate.error.flatten().fieldErrors }
 
 	try {
 		await connect()
