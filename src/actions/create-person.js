@@ -1,7 +1,7 @@
 "use server"
 
 import { z } from "zod"
-import { connect, disconnect } from "@/lib/db"
+import { connect } from "@/lib/db"
 import Person from "@/models/person"
 
 const PersonValidation = z.object({
@@ -31,10 +31,8 @@ export default async function CreatePerson(prevState, formData) {
 
 	try {
 		await doc.save()
-		await disconnect()
 		return { success: true }
 	} catch (error) {
-		await disconnect()
 		console.error(error)
 		return { success: false, error: "Could not create person" }
 	}
