@@ -12,6 +12,6 @@ export async function disconnect() {
 	try {
 		await mongoose.disconnect()
 	} catch (error) {
-		console.error("MongoDB disconnect error", error);
+		console.error("MongoDB disconnect error", error)
 	}
 }

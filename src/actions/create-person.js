@@ -14,7 +14,8 @@ export default async function CreatePerson(prevState, formData) {
 
 	const validate = PersonValidation.safeParse({ name, age: Number(age) })
 	
-	if(!validate.success) return { success: false, errors: validate.error.flatten().fieldErrors }
+	if(!validate.success)
+		return { success: false, errors: validate.error.flatten().fieldErrors }
 
 	const doc = new Person({
 		name,
