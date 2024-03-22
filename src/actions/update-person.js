@@ -29,6 +29,6 @@ export default async function UpdatePerson(prevState, formData) {
 		return { success: true }
 	} catch (error) {
 		console.error(error)
-		return { success: false, error: "Could not create person" }
+		return { success: false, error: "Could find or edit this person" }
 	}
 }

@@ -15,10 +15,7 @@ export default function DialogEdit({ person, loader, setLoader }) {
 	const dialogRef = useRef(null)
 
 	useEffect(function () {
-		if (formState && !formState?.success) {
-			toast.error("Der skete en fejl. Prøv igen senere.")
-			return
-		} else if (formState?.success) {
+		if (formState?.success) {
 			toast.success("Personen er blevet opdateret.")
 			setLoader(!loader)
 			dialogRef.current.close()
@@ -36,13 +33,13 @@ export default function DialogEdit({ person, loader, setLoader }) {
 
 				<form action={formAction} noValidate>
 					<input type="hidden" name="id" value={person._id} />
-					<Input label="Navn" name="name" value={person.name} statusMessage={formState?.errors?.name[0]} />
-					<Input label="Alder" name="age" type="number" value={person.age} statusMessage={formState?.errors?.age[0]} />
+					<Input label="Navn" name="name" value={person.name} statusMessage={formState?.errors?.name} />
+					<Input label="Alder" name="age" type="number" value={person.age} statusMessage={formState?.errors?.age} />
 					<div className="flex justify-between gap-4">
 						<Button type="submit" color="default">Update</Button>
 						<Button type="button" onClick={() => dialogRef.current.close()} color="secondary">Annuller</Button>
 					</div>
-					<span className="text-red-500">{formState?.errors?.message}</span>
+					<span className="text-red-500">{formState?.error?.message}</span>
 				</form>
 			</Dialog>
 		</>
